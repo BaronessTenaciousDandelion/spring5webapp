@@ -1,9 +1,6 @@
 package guru.springframework.spring5webapp.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
 import java.util.List;
 import java.util.UUID;
 
@@ -16,14 +13,17 @@ public class Book {
     private String isbn;
     @ManyToMany
     private List<Author> authors;
+    @ManyToOne
+    private Publisher publisher;
 
     protected Book() {
     }
 
-    public Book(String title, String isbn, List<Author> authors) {
+    public Book(String title, String isbn, List<Author> authors, Publisher publisher) {
         Title = title;
         this.isbn = isbn;
         this.authors = authors;
+        this.publisher = publisher;
     }
 
     @Override
