@@ -9,7 +9,7 @@ public class Book {
     @Id
     @GeneratedValue
     private UUID id;
-    private String Title;
+    private String title;
     private String isbn;
     @ManyToMany
     private List<Author> authors;
@@ -20,19 +20,40 @@ public class Book {
     }
 
     public Book(String title, String isbn, List<Author> authors, Publisher publisher) {
-        Title = title;
+        this.title = title;
         this.isbn = isbn;
         this.authors = authors;
         this.publisher = publisher;
+    }
+
+    public UUID getId() {
+        return id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getIsbn() {
+        return isbn;
+    }
+
+    public List<Author> getAuthors() {
+        return authors;
+    }
+
+    public Publisher getPublisher() {
+        return publisher;
     }
 
     @Override
     public String toString() {
         return "Book{" +
                 "id=" + id +
-                ", Title='" + Title + '\'' +
+                ", title='" + title + '\'' +
                 ", isbn='" + isbn + '\'' +
                 ", authors=" + authors +
+                ", publisher=" + publisher +
                 '}';
     }
 }
